@@ -81,7 +81,9 @@ fn prepare_tensorflow_library() {
             };
             // Use cargo's cross-compilation information while building tensorflow
             // Now that tensorflow has an aarch64_makefile.inc use theirs
-            let target = if &arch == "aarch64" { &arch } else { &os };
+            // TODO: SOUNDMIND hacks for darwin on M1
+            // let target = if &arch == "aarch64" { &arch } else { &os };
+            let target = &os;
 
             #[cfg(feature = "debug_tflite")]
             {
